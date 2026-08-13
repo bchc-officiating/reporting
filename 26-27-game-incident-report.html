@@ -602,8 +602,8 @@
   <!-- HEADER -->
   <div class="page-header">
     <div class="eyebrow-top">2026&ndash;27 Season</div>
-    <h1 class="page-title">26/27 BCHC Game Incident Reporting Form</h1>
-    <p class="page-subtitle">Complete one report per penalty incident. A copy is emailed to you and to BCHC Hockey Operations as soon as you submit.</p>
+    <h1 class="page-title">BCHC Game Incident Reporting Form</h1>
+    <p class="page-subtitle" id="pageSubtitle">Complete one report per player. A copy of the report is emailed to you and to BCHC DOPS as soon as you submit.</p>
   </div>
 
   <div class="rink-divider" aria-hidden="true">
@@ -928,7 +928,7 @@
     <!-- SECTION 5: PENALTIES -->
     <div class="section">
       <h2 class="section-eyebrow"><span class="tag">05</span> Penalties Being Reported</h2>
-      <p class="section-hint">Select the penalty first &mdash; the matching rule reference list will appear underneath it. You can report up to 5 penalties on this incident.</p>
+      <p class="section-hint">Select the penalty classification first &mdash; the matching rule reference list will appear underneath it. You can select up to 5 reportable penalties for the player you are submitting the reporting.</p>
 
       <div id="penaltyContainer"></div>
 
@@ -939,11 +939,34 @@
     <!-- SECTION 6: DETAILS -->
     <div class="section">
       <h2 class="section-eyebrow"><span class="tag">06</span> Details of Incident</h2>
-      <p class="section-hint">Describe what happened in as much detail as possible &mdash; the sequence of events, the position of the players, the contact made, and any injury or player response.</p>
+      <p class="section-hint">Describe what happened in as much detail as possible &mdash; the sequence of events, the name and number of the player who was fouled from the opposing team, the degree of impact/violence</p>
 
-      <div class="field" style="margin-bottom:0;">
+      <div class="field">
         <label for="incidentDetails">Details of Incident<span class="req">*</span></label>
         <textarea id="incidentDetails" name="incidentDetails" required rows="10"></textarea>
+      </div>
+
+      <div class="field" style="margin-bottom:0;">
+        <label for="opponentInjured">Was the opponent injured as a result of the action?<span class="req">*</span></label>
+        <select id="opponentInjured" name="opponentInjured" required>
+          <option value="" disabled selected>Select...</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="field conditional" id="panel-injuredReturned" style="margin-top:16px; margin-bottom:0;">
+        <label for="injuredReturned">Did the injured player return to the game?<span class="req">*</span></label>
+        <select id="injuredReturned" name="injuredReturned">
+          <option value="" disabled selected>Select...</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="field conditional" id="panel-returnTime" style="margin-top:16px; margin-bottom:0;">
+        <label for="returnTime">At what time remaining in the game did the officiating crew observe the injured player return to the ice?<span class="req">*</span></label>
+        <input type="text" id="returnTime" name="returnTime" placeholder="e.g. 12:47 remaining in the 3rd">
       </div>
     </div>
 
@@ -958,13 +981,13 @@
   <div class="confirm" id="confirmPanel">
     <div class="puck-icon">&#10003;</div>
     <h2>Report Received &mdash; Thank You</h2>
-    <p>Thank you for submitting this Game Incident Report. A copy has been emailed to you and to BCHC Hockey Operations at dops@bchchockey.ca. If Hockey Operations needs anything further, they will contact you directly.</p>
+    <p>Thank you for submitting this Game Incident Report. A copy has been emailed to you and to BCHC DOPS at dops@bchchockey.ca. If the Department of Player Safety needs anything further, they will contact you directly.</p>
 
     <div class="confirm-summary" id="confirmSummary"></div>
 
     <div class="confirm-actions">
       <button type="button" class="btn-again" id="againBtn">Report Another Incident From This Game</button>
-      <span class="note">Your details and the game information will carry over &mdash; you will only need to fill in the new incident.</span>
+      <span class="note">The game information you submitted from this report will carry over to the new form &mdash; you will only need to fill in details of the new player/coach and the associated information.</span>
     </div>
   </div>
 
@@ -984,10 +1007,6 @@
      To edit a rule list, change the array beside that penalty name below.
      To add a penalty, add a new "Penalty name": ["Rule 1","Rule 2"] entry
      AND add the same name to PENALTY_ORDER so it appears in the dropdown.
-
-     >> PLEASE REVIEW: the source document lists "Tripping - WCDM Rule 57"
-     >> in the penalty dropdown but never gives its rule references. The two
-     >> options below are a placeholder -- confirm or correct them.
      --------------------------------------------------------------------- */
   var PENALTY_DATA = {
   "Boarding - WCDM Rule 41": [
@@ -1124,10 +1143,6 @@
   "Throwing Equipment - WCDM Rule 53": [
     "Game Misconduct",
     "Match Penalty"
-  ],
-  "Tripping - WCDM Rule 57": [
-    "Major & GM",
-    "Match Penalty"
   ]
 };
 
@@ -1156,8 +1171,7 @@
   "Slashing - WCDM Rule 61",
   "Slew-Footing - WCDM Rule 52",
   "Spearing - WCDM Rule 62",
-  "Throwing Equipment - WCDM Rule 53",
-  "Tripping - WCDM Rule 57"
+  "Throwing Equipment - WCDM Rule 53"
 ];
 
   /* Fields that carry over when reporting another incident from the same game */
@@ -1295,6 +1309,39 @@
   var updateVisitingOther = wireOther('visitingTeam','panel-visitingOther','visitingTeamOther');
   var updateOffendingOther = wireOther('offendingTeam','panel-offendingOther','offendingTeamOther');
 
+  /* ---- Injury follow-up questions ------------------------------------- */
+  var updateInjury = (function(){
+    var injured = document.getElementById('opponentInjured');
+    var returnPanel = document.getElementById('panel-injuredReturned');
+    var returned = document.getElementById('injuredReturned');
+    var timePanel = document.getElementById('panel-returnTime');
+    var timeInput = document.getElementById('returnTime');
+
+    function update(){
+      if(injured.value === 'Yes'){
+        returnPanel.classList.add('show');
+        returned.required = true;
+      } else {
+        returnPanel.classList.remove('show');
+        returned.required = false;
+        returned.selectedIndex = 0;
+      }
+
+      if(injured.value === 'Yes' && returned.value === 'Yes'){
+        timePanel.classList.add('show');
+        timeInput.required = true;
+      } else {
+        timePanel.classList.remove('show');
+        timeInput.required = false;
+        timeInput.value = '';
+      }
+    }
+
+    injured.addEventListener('change', update);
+    returned.addEventListener('change', update);
+    return update;
+  })();
+
   /* =====================================================================
      4. INPUT MASKS
      ===================================================================== */
@@ -1387,7 +1434,8 @@
     var data = {};
     var simple = ['firstName','lastName','email','phone','referee1','referee2',
                   'linesperson1','linesperson2','gameNumber','period','timeOnClock',
-                  'playerNumber','playerName','incidentDetails'];
+                  'playerNumber','playerName','incidentDetails',
+                  'opponentInjured','injuredReturned','returnTime'];
     for(var i = 0; i < simple.length; i++){
       data[simple[i]] = (document.getElementById(simple[i]).value || '').trim();
     }
@@ -1464,6 +1512,7 @@
       '<div><b>Penalties:</b> ' + escapeHtml(data.penaltySummary) + '</div>';
 
     form.style.display = 'none';
+    document.getElementById('pageSubtitle').style.display = 'none';
     document.getElementById('confirmPanel').classList.add('show');
     window.scrollTo({top:0, behavior:'smooth'});
   }
@@ -1499,12 +1548,14 @@
     updateHomeOther();
     updateVisitingOther();
     updateOffendingOther();
+    updateInjury();
 
     clearError();
     submitBtn.disabled = false;
     submitBtn.textContent = 'Submit Report';
 
     document.getElementById('confirmPanel').classList.remove('show');
+    document.getElementById('pageSubtitle').style.display = '';
     form.style.display = '';
 
     var period = document.getElementById('period');
