@@ -335,6 +335,247 @@
     line-height:1.5;
   }
 
+  /* ---------- COMPACT / INJURY ROW ---------- */
+  .injury-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px 28px;
+    align-items:flex-start;
+  }
+  .field.compact{
+    margin-bottom:0;
+    flex:0 1 auto;
+    max-width:100%;
+  }
+  .field.compact select{
+    width:auto;
+    min-width:110px;
+    padding-right:38px;
+  }
+  .field.compact.conditional{display:none;}
+  .field.compact.conditional.show{
+    display:block;
+    animation:reveal .25s ease;
+  }
+
+  /* ---------- REVIEW PAGE ---------- */
+  .review{
+    display:none;
+    max-width:760px;
+    margin:0 auto 80px;
+  }
+  .review.show{display:block;}
+
+  .review-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:8px 32px 28px;
+    box-shadow:0 1px 3px rgba(15,27,39,0.05);
+  }
+
+  .review-shared{
+    background:#F7F9FA;
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:16px 18px;
+    margin-top:22px;
+  }
+
+  .review-shared-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+  }
+
+  .review-shared-head h3{
+    font-family:'Teko', sans-serif;
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .kv{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:4px 14px;
+    font-size:14px;
+    line-height:1.5;
+  }
+  .kv dt{
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    color:#6B7580;
+    padding-top:1px;
+  }
+  .kv dd{
+    margin:0;
+    color:var(--ink);
+    word-break:break-word;
+  }
+
+  .report-item{
+    border:1.5px solid var(--line);
+    border-radius:5px;
+    background:var(--white);
+    padding:16px 18px;
+    margin-bottom:14px;
+  }
+
+  .report-item-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .report-item-head h4{
+    font-family:'Teko', sans-serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .report-item-head h4::before{
+    content:"";
+    width:9px;height:9px;border-radius:50%;
+    background:var(--ice);
+    box-shadow:0 0 0 3px var(--ice-dim);
+    flex-shrink:0;
+  }
+
+  .report-actions{
+    margin-left:auto;
+    display:flex;
+    gap:8px;
+  }
+
+  .btn-mini{
+    background:none;
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    color:#3A4550;
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    padding:6px 14px;
+    cursor:pointer;
+    transition:all .15s;
+  }
+  .btn-mini:hover{border-color:var(--ice); background:var(--ice-dim);}
+  .btn-mini.danger:hover{border-color:var(--danger); color:var(--danger); background:#FDF2F1;}
+
+  .report-penalties{
+    list-style:none;
+    margin:8px 0 0;
+    padding:0;
+  }
+  .report-penalties li{
+    font-size:14px;
+    line-height:1.45;
+    padding:6px 0 6px 16px;
+    border-left:3px solid var(--ice-dim);
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .report-penalties li b{font-weight:600;}
+  .report-penalties li span{
+    display:block;
+    color:#6B7580;
+    font-size:13px;
+  }
+
+  .report-detail-text{
+    font-size:14px;
+    line-height:1.55;
+    color:#2E3944;
+    white-space:pre-wrap;
+    margin:6px 0 0;
+  }
+
+  .review-add{
+    width:100%;
+    background:var(--white);
+    border:1.5px dashed var(--steel);
+    border-radius:4px;
+    color:var(--ink);
+    font-family:'Teko', sans-serif;
+    font-size:19px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:13px 18px 10px;
+    cursor:pointer;
+    transition:all .15s;
+    margin-top:4px;
+  }
+  .review-add:hover{border-color:var(--ice); background:var(--ice-dim);}
+
+  .review-submit-row{
+    margin-top:24px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+
+  .btn-final{
+    font-family:'Teko', sans-serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--white);
+    border:none;
+    border-radius:4px;
+    padding:12px 34px 10px;
+    cursor:pointer;
+    transition:background .15s, transform .1s;
+  }
+  .btn-final:hover{background:var(--ink-2);}
+  .btn-final:active{transform:translateY(1px);}
+  .btn-final:disabled{opacity:0.6; cursor:not-allowed;}
+
+  .review-count{
+    font-size:13px;
+    color:#6B7580;
+  }
+
+  .edit-banner{
+    display:none;
+    background:#F5F9FA;
+    border:1px solid var(--ice-dim);
+    border-left:4px solid var(--ice);
+    border-radius:4px;
+    padding:12px 14px;
+    font-size:13.5px;
+    color:#2E3944;
+    margin:22px 0 -8px;
+    line-height:1.5;
+  }
+  .edit-banner.show{display:block;}
+
   /* ---------- PENALTY BLOCKS ---------- */
   .penalty-block{
     border:1.5px solid var(--line);
@@ -582,6 +823,13 @@
     .confirm h2{font-size:28px;}
     .submit-row button[type="submit"]{width:100%;}
     .penalty-block{padding:14px 12px 2px;}
+    .review-card{padding:6px 18px 22px;}
+    .review{margin-bottom:48px;}
+    .injury-row{gap:16px;}
+    .field.compact{flex:1 1 100%;}
+    .field.compact select{width:100%;}
+    .review-submit-row .btn-final{width:100%;}
+    .report-actions{margin-left:0; width:100%;}
   }
 </style>
 </head>
@@ -603,12 +851,14 @@
   <div class="page-header">
     <div class="eyebrow-top">2026&ndash;27 Season</div>
     <h1 class="page-title">BCHC Game Incident Reporting Form</h1>
-    <p class="page-subtitle" id="pageSubtitle">Complete one report per player. A copy of the report is emailed to you and to BCHC DOPS as soon as you submit.</p>
+    <p class="page-subtitle" id="pageSubtitle">Complete one report per player. A copy of the report is emailed to you and to BCHC DOPS as soon as you submit. If you have reports for multiple players/bench personnel, click &ldquo;Save &amp; Review Report&rdquo;, and on the following page you will be able to add additional reports.</p>
   </div>
 
   <div class="rink-divider" aria-hidden="true">
     <div class="seg"></div><div class="dot"></div><div class="seg"></div>
   </div>
+
+  <div class="edit-banner" id="editBanner"></div>
 
   <form id="incidentForm" novalidate>
 
@@ -681,10 +931,12 @@
         </div>
       </div>
 
-      <div class="field">
-        <label for="homeTeam">Home Team<span class="req">*</span></label>
-        <select id="homeTeam" name="homeTeam" required>
-          <option value="" disabled selected>Select...</option>
+      <div class="row">
+        <div>
+          <div class="field">
+            <label for="homeTeam">Home Team<span class="req">*</span></label>
+            <select id="homeTeam" name="homeTeam" required>
+              <option value="" disabled selected>Select...</option>
         <option value="Beaver Valley Nitehawks">Beaver Valley Nitehawks</option>
         <option value="Burnaby Steelers">Burnaby Steelers</option>
         <option value="Chilliwack Jets">Chilliwack Jets</option>
@@ -708,18 +960,19 @@
         <option value="Summerland Jets">Summerland Jets</option>
         <option value="Williams Lake Mustangs">Williams Lake Mustangs</option>
         <option value="Other">Other</option>
-        </select>
-      </div>
+            </select>
+          </div>
+          <div class="field conditional" id="panel-homeOther">
+            <label for="homeTeamOther">Other Team Name<span class="req">*</span></label>
+            <input type="text" id="homeTeamOther" name="homeTeamOther">
+          </div>
+        </div>
 
-      <div class="field conditional" id="panel-homeOther">
-        <label for="homeTeamOther">Other Team Name<span class="req">*</span></label>
-        <input type="text" id="homeTeamOther" name="homeTeamOther">
-      </div>
-
-      <div class="field">
-        <label for="visitingTeam">Visiting Team<span class="req">*</span></label>
-        <select id="visitingTeam" name="visitingTeam" required>
-          <option value="" disabled selected>Select...</option>
+        <div>
+          <div class="field">
+            <label for="visitingTeam">Visiting Team<span class="req">*</span></label>
+            <select id="visitingTeam" name="visitingTeam" required>
+              <option value="" disabled selected>Select...</option>
         <option value="Beaver Valley Nitehawks">Beaver Valley Nitehawks</option>
         <option value="Burnaby Steelers">Burnaby Steelers</option>
         <option value="Chilliwack Jets">Chilliwack Jets</option>
@@ -743,17 +996,18 @@
         <option value="Summerland Jets">Summerland Jets</option>
         <option value="Williams Lake Mustangs">Williams Lake Mustangs</option>
         <option value="Other">Other</option>
-        </select>
-      </div>
-
-      <div class="field conditional" id="panel-visitingOther">
-        <label for="visitingTeamOther">Other Team Name<span class="req">*</span></label>
-        <input type="text" id="visitingTeamOther" name="visitingTeamOther">
+            </select>
+          </div>
+          <div class="field conditional" id="panel-visitingOther">
+            <label for="visitingTeamOther">Other Team Name<span class="req">*</span></label>
+            <input type="text" id="visitingTeamOther" name="visitingTeamOther">
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- SECTION 4: INCIDENT -->
-    <div class="section">
+    <div class="section" id="section-incident">
       <h2 class="section-eyebrow"><span class="tag">04</span> Incident</h2>
 
       <div class="row">
@@ -761,11 +1015,11 @@
           <label for="period">Period When Incident Occurred<span class="req">*</span></label>
           <select id="period" name="period" required>
             <option value="" disabled selected>Select...</option>
-        <option value="1st Period">1st Period</option>
-        <option value="2nd Period">2nd Period</option>
-        <option value="3rd Period">3rd Period</option>
-        <option value="OT Period">OT Period</option>
-        <option value="Outside the normal timeframe of the game">Outside the normal timeframe of the game</option>
+        <option value="1st">1st</option>
+        <option value="2nd">2nd</option>
+        <option value="3rd">3rd</option>
+        <option value="OT">OT</option>
+        <option value="Other">Other</option>
           </select>
         </div>
         <div class="field">
@@ -926,7 +1180,7 @@
     </div>
 
     <!-- SECTION 5: PENALTIES -->
-    <div class="section">
+    <div class="section" id="section-penalties">
       <h2 class="section-eyebrow"><span class="tag">05</span> Penalties Being Reported</h2>
       <p class="section-hint">Select the penalty classification first &mdash; the matching rule reference list will appear underneath it. You can select up to 5 reportable penalties for the player you are submitting the reporting.</p>
 
@@ -937,7 +1191,7 @@
     </div>
 
     <!-- SECTION 6: DETAILS -->
-    <div class="section">
+    <div class="section" id="section-details">
       <h2 class="section-eyebrow"><span class="tag">06</span> Details of Incident</h2>
       <p class="section-hint">Describe what happened in as much detail as possible &mdash; the sequence of events, the name and number of the player who was fouled from the opposing team, the degree of impact/violence</p>
 
@@ -946,47 +1200,82 @@
         <textarea id="incidentDetails" name="incidentDetails" required rows="10"></textarea>
       </div>
 
-      <div class="field" style="margin-bottom:0;">
-        <label for="opponentInjured">Was the opponent injured as a result of the action?<span class="req">*</span></label>
-        <select id="opponentInjured" name="opponentInjured" required>
-          <option value="" disabled selected>Select...</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+      <div class="injury-row">
+        <div class="field compact">
+          <label for="opponentInjured">Was the opponent injured as a result of the action?<span class="req">*</span></label>
+          <select id="opponentInjured" name="opponentInjured" required>
+            <option value="" disabled selected>Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="field compact conditional" id="panel-injuredReturned">
+          <label for="injuredReturned">Did the injured player return to the game?<span class="req">*</span></label>
+          <select id="injuredReturned" name="injuredReturned">
+            <option value="" disabled selected>Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
       </div>
 
-      <div class="field conditional" id="panel-injuredReturned" style="margin-top:16px; margin-bottom:0;">
-        <label for="injuredReturned">Did the injured player return to the game?<span class="req">*</span></label>
-        <select id="injuredReturned" name="injuredReturned">
-          <option value="" disabled selected>Select...</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-
-      <div class="field conditional" id="panel-returnTime" style="margin-top:16px; margin-bottom:0;">
+      <div class="field conditional" id="panel-returnTime" style="margin-bottom:0;">
         <label for="returnTime">At what time remaining in the game did the officiating crew observe the injured player return to the ice?<span class="req">*</span></label>
         <input type="text" id="returnTime" name="returnTime" placeholder="e.g. 12:47 remaining in the 3rd">
       </div>
     </div>
 
     <div class="submit-row">
-      <button type="submit" id="submitBtn">Submit Report</button>
-      <span class="submit-hint">Fields marked <span class="req" style="color:var(--danger)">*</span> are required.</span>
+      <button type="submit" id="submitBtn">Save &amp; Review Report</button>
+      <span class="submit-hint">Fields marked <span class="req" style="color:var(--danger)">*</span> are required. Nothing is sent until you submit from the review page.</span>
     </div>
 
     <div class="form-error" id="formError"></div>
   </form>
 
+  <!-- REVIEW PAGE -->
+  <div class="review" id="reviewPanel">
+    <div class="review-card">
+
+      <div class="section" style="border:none;">
+        <h2 class="section-eyebrow"><span class="tag">&#10003;</span> Review Before Submitting</h2>
+        <p class="section-hint">Check everything below, then submit. You can edit any report, remove one, or add another player before sending.</p>
+      </div>
+
+      <div class="review-shared">
+        <div class="review-shared-head">
+          <h3>Game &amp; Filing Official</h3>
+          <button type="button" class="btn-mini" id="editSharedBtn">Edit</button>
+        </div>
+        <dl class="kv" id="sharedSummary"></dl>
+      </div>
+
+      <div class="section" style="border:none; padding-top:24px;">
+        <h2 class="section-eyebrow"><span class="tag">&#9642;</span> Reports In This Submission</h2>
+        <p class="section-hint" id="reportsHint"></p>
+        <div id="reportList"></div>
+        <button type="button" class="review-add" id="addReportBtn">+ Add Another Report</button>
+      </div>
+
+      <div class="review-submit-row">
+        <button type="button" class="btn-final" id="finalSubmitBtn">Submit All Reports</button>
+        <span class="review-count" id="reviewCount"></span>
+      </div>
+
+      <div class="form-error" id="reviewError"></div>
+    </div>
+  </div>
+
   <div class="confirm" id="confirmPanel">
     <div class="puck-icon">&#10003;</div>
-    <h2>Report Received &mdash; Thank You</h2>
-    <p>Thank you for submitting this Game Incident Report. A copy has been emailed to you and to BCHC DOPS at dops@bchchockey.ca. If the Department of Player Safety needs anything further, they will contact you directly.</p>
+    <h2 id="confirmHeading">Report Received &mdash; Thank You</h2>
+    <p id="confirmMessage">Thank you for submitting this Game Incident Report. A copy has been emailed to you and to BCHC DOPS. If the Department of Player Safety needs anything further, they will contact you directly.</p>
 
     <div class="confirm-summary" id="confirmSummary"></div>
 
     <div class="confirm-actions">
-      <button type="button" class="btn-again" id="againBtn">Report Another Incident From This Game</button>
+      <button type="button" class="btn-again" id="againBtn">Start A New Submission For This Game</button>
       <span class="note">The game information you submitted from this report will carry over to the new form &mdash; you will only need to fill in details of the new player/coach and the associated information.</span>
     </div>
   </div>
@@ -998,7 +1287,7 @@
   /* =====================================================================
      1. CONFIGURATION  --  paste your deployed Apps Script Web App URL here
      ===================================================================== */
-  var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby_nmQZVHP6iKwWdC-XWEuQTXa-RalNFoLizeUbnGlsmA3_m9Yhs8iiZdDmk1nAqwZu/exec";
+  var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxZLZq2DBaVJYrTllIRzL35brfQ_aIOo6_HVZOgiRn_NoP38oAclV7E6zOyu2nFJHv4PQ/exec";
 
   var MAX_PENALTIES = 5;
 
@@ -1375,6 +1664,17 @@
     return parts[1] + '/' + parts[2] + '/' + parts[0];
   }
 
+  function val(id){
+    var el = document.getElementById(id);
+    return el ? (el.value || '').trim() : '';
+  }
+
+  function setValue(id, v){
+    if(v === undefined || v === null) return;
+    var el = document.getElementById(id);
+    if(el) el.value = v;
+  }
+
   function teamValue(selectId, otherId){
     var sel = document.getElementById(selectId);
     if(sel.value === 'Other'){
@@ -1384,194 +1684,9 @@
     return sel.value;
   }
 
-  function showError(msg, focusEl){
-    errorEl.textContent = msg;
-    errorEl.classList.add('show');
-    if(focusEl){
-      focusEl.scrollIntoView({behavior:'smooth', block:'center'});
-      try { focusEl.focus({preventScroll:true}); } catch(e){ focusEl.focus(); }
-    }
-  }
-
-  function clearError(){
-    errorEl.classList.remove('show');
-    errorEl.textContent = '';
-  }
-
-  function validate(){
-    clearError();
-
-    var required = form.querySelectorAll('input[required], select[required], textarea[required]');
-    for(var i = 0; i < required.length; i++){
-      var el = required[i];
-      if(el.offsetParent === null && el.type !== 'hidden') continue; // hidden conditional field
-      if(!el.checkValidity()){
-        var label = el.closest('.field') ? el.closest('.field').querySelector('label') : null;
-        var name = label ? label.textContent.replace('*','').trim() : 'a required field';
-        showError(el.value ? ('Please check the format of "' + name + '".')
-                           : ('Please complete "' + name + '" before submitting.'), el);
-        return false;
-      }
-    }
-
-    var blocks = container.children;
-    for(var b = 0; b < blocks.length; b++){
-      var nameSel = blocks[b].querySelector('.penalty-name');
-      var ruleSel = blocks[b].querySelector('.penalty-rule');
-      if(!nameSel.value){
-        showError('Please select a penalty for Penalty ' + (b + 1) + ', or remove that block.', nameSel);
-        return false;
-      }
-      if(ruleSel.required && !ruleSel.value){
-        showError('Please select a rule reference for Penalty ' + (b + 1) + '.', ruleSel);
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function collect(){
-    var data = {};
-    var simple = ['firstName','lastName','email','phone','referee1','referee2',
-                  'linesperson1','linesperson2','gameNumber','period','timeOnClock',
-                  'playerNumber','playerName','incidentDetails',
-                  'opponentInjured','injuredReturned','returnTime'];
-    for(var i = 0; i < simple.length; i++){
-      data[simple[i]] = (document.getElementById(simple[i]).value || '').trim();
-    }
-
-    data.gameDateISO = document.getElementById('gameDate').value;
-    data.gameDate = formatDate(data.gameDateISO);
-    data.homeTeam = teamValue('homeTeam','homeTeamOther');
-    data.visitingTeam = teamValue('visitingTeam','visitingTeamOther');
-    data.offendingTeam = teamValue('offendingTeam','offendingTeamOther');
-
-    var blocks = container.children;
-    data.penaltyCount = blocks.length;
-    var summary = [];
-    for(var b = 0; b < MAX_PENALTIES; b++){
-      var nameVal = '', ruleVal = '';
-      if(b < blocks.length){
-        nameVal = blocks[b].querySelector('.penalty-name').value || '';
-        ruleVal = blocks[b].querySelector('.penalty-rule').value || '';
-        summary.push(nameVal + (ruleVal ? ' \u2014 ' + ruleVal : ''));
-      }
-      data['penalty' + (b + 1) + 'Name'] = nameVal;
-      data['penalty' + (b + 1) + 'Rule'] = ruleVal;
-    }
-    data.penaltySummary = summary.join(' | ');
-    data.submittedAt = new Date().toLocaleString('en-CA', {timeZone:'America/Vancouver'});
-    return data;
-  }
-
-  /* =====================================================================
-     6. SUBMIT
-     ===================================================================== */
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!validate()) return;
-
-    var data = collect();
-    var originalLabel = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting\u2026';
-
-    var body = new FormData();
-    for(var key in data){
-      if(Object.prototype.hasOwnProperty.call(data, key)){
-        body.append(key, data[key]);
-      }
-    }
-
-    fetch(GOOGLE_SCRIPT_URL, {method:'POST', mode:'no-cors', body:body})
-      .then(function(){
-        showConfirmation(data);
-      })
-      .catch(function(){
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-        showError('Something went wrong submitting the report. Please check your connection and try again. If it keeps failing, email your report to dops@bchchockey.ca.');
-      });
-  });
-
-  /* =====================================================================
-     7. CONFIRMATION + "REPORT ANOTHER INCIDENT"
-     ===================================================================== */
-  var lastSubmission = null;
-
-  function showConfirmation(data){
-    lastSubmission = data;
-    try { sessionStorage.setItem('bchcCarryOver', JSON.stringify(data)); } catch(err){}
-
-    var summary = document.getElementById('confirmSummary');
-    summary.innerHTML =
-      '<div><b>Game #:</b> ' + escapeHtml(data.gameNumber) + '</div>' +
-      '<div><b>Date:</b> ' + escapeHtml(data.gameDate) + '</div>' +
-      '<div><b>Matchup:</b> ' + escapeHtml(data.visitingTeam) + ' at ' + escapeHtml(data.homeTeam) + '</div>' +
-      '<div><b>Reported:</b> ' + escapeHtml(data.playerNumber) + ' ' + escapeHtml(data.playerName) + ' (' + escapeHtml(data.offendingTeam) + ')</div>' +
-      '<div><b>Penalties:</b> ' + escapeHtml(data.penaltySummary) + '</div>';
-
-    form.style.display = 'none';
-    document.getElementById('pageSubtitle').style.display = 'none';
-    document.getElementById('confirmPanel').classList.add('show');
-    window.scrollTo({top:0, behavior:'smooth'});
-  }
-
-  document.getElementById('againBtn').addEventListener('click', function(){
-    var carry = lastSubmission;
-    if(!carry){
-      try { carry = JSON.parse(sessionStorage.getItem('bchcCarryOver') || 'null'); } catch(err){ carry = null; }
-    }
-
-    form.reset();
-
-    /* rebuild penalty blocks back down to one empty block */
-    container.innerHTML = '';
-    penaltyIndex = 0;
-    addPenaltyBlock();
-
-    if(carry){
-      setValue('firstName', carry.firstName);
-      setValue('lastName', carry.lastName);
-      setValue('email', carry.email);
-      setValue('phone', carry.phone);
-      setValue('referee1', carry.referee1);
-      setValue('referee2', carry.referee2);
-      setValue('linesperson1', carry.linesperson1);
-      setValue('linesperson2', carry.linesperson2);
-      setValue('gameNumber', carry.gameNumber);
-      setValue('gameDate', carry.gameDateISO);
-      restoreTeam('homeTeam','homeTeamOther', carry.homeTeam);
-      restoreTeam('visitingTeam','visitingTeamOther', carry.visitingTeam);
-    }
-
-    updateHomeOther();
-    updateVisitingOther();
-    updateOffendingOther();
-    updateInjury();
-
-    clearError();
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Submit Report';
-
-    document.getElementById('confirmPanel').classList.remove('show');
-    document.getElementById('pageSubtitle').style.display = '';
-    form.style.display = '';
-
-    var period = document.getElementById('period');
-    period.scrollIntoView({behavior:'smooth', block:'center'});
-    try { period.focus({preventScroll:true}); } catch(err){}
-  });
-
-  function setValue(id, val){
-    if(val === undefined || val === null) return;
-    var el = document.getElementById(id);
-    if(el) el.value = val;
-  }
-
   function restoreTeam(selectId, otherId, storedValue){
-    if(!storedValue) return;
     var sel = document.getElementById(selectId);
+    if(!storedValue){ sel.selectedIndex = 0; return; }
     var isOther = /\s\(Other\)$/.test(storedValue) || storedValue === 'Other';
     if(isOther){
       sel.value = 'Other';
@@ -1581,14 +1696,455 @@
     }
   }
 
-  /* Restore carry-over values if the official refreshes the page mid-session */
+  function showError(el, msg, focusEl){
+    el.textContent = msg;
+    el.classList.add('show');
+    if(focusEl){
+      focusEl.scrollIntoView({behavior:'smooth', block:'center'});
+      try { focusEl.focus({preventScroll:true}); } catch(e){ focusEl.focus(); }
+    }
+  }
+
+  function clearError(el){
+    el.classList.remove('show');
+    el.textContent = '';
+  }
+
+  /* =====================================================================
+     6. STATE
+     ===================================================================== */
+  var reports = [];          /* every player report in this submission */
+  var shared = null;         /* game + filing official details */
+  var mode = 'new';          /* 'new' | 'edit' | 'shared' */
+  var editingIndex = -1;
+
+  var reviewPanel = document.getElementById('reviewPanel');
+  var confirmPanel = document.getElementById('confirmPanel');
+  var subtitle = document.getElementById('pageSubtitle');
+  var editBanner = document.getElementById('editBanner');
+  var reviewError = document.getElementById('reviewError');
+  var finalSubmitBtn = document.getElementById('finalSubmitBtn');
+
+  function showView(view){
+    var showForm = (view === 'form');
+    form.style.display = showForm ? '' : 'none';
+    editBanner.classList.toggle('show', showForm && editBanner.textContent !== '');
+    reviewPanel.classList.toggle('show', view === 'review');
+    confirmPanel.classList.toggle('show', view === 'confirm');
+    subtitle.style.display = showForm ? '' : 'none';
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  /* =====================================================================
+     7. READING AND WRITING THE FORM
+     ===================================================================== */
+  function readShared(){
+    return {
+      firstName:    val('firstName'),
+      lastName:     val('lastName'),
+      email:        val('email'),
+      phone:        val('phone'),
+      referee1:     val('referee1'),
+      referee2:     val('referee2'),
+      linesperson1: val('linesperson1'),
+      linesperson2: val('linesperson2'),
+      gameNumber:   val('gameNumber'),
+      gameDateISO:  val('gameDate'),
+      gameDate:     formatDate(val('gameDate')),
+      homeTeam:     teamValue('homeTeam','homeTeamOther'),
+      visitingTeam: teamValue('visitingTeam','visitingTeamOther')
+    };
+  }
+
+  function writeShared(sh){
+    if(!sh) return;
+    setValue('firstName', sh.firstName);
+    setValue('lastName', sh.lastName);
+    setValue('email', sh.email);
+    setValue('phone', sh.phone);
+    setValue('referee1', sh.referee1);
+    setValue('referee2', sh.referee2);
+    setValue('linesperson1', sh.linesperson1);
+    setValue('linesperson2', sh.linesperson2);
+    setValue('gameNumber', sh.gameNumber);
+    setValue('gameDate', sh.gameDateISO);
+    restoreTeam('homeTeam','homeTeamOther', sh.homeTeam);
+    restoreTeam('visitingTeam','visitingTeamOther', sh.visitingTeam);
+    updateHomeOther();
+    updateVisitingOther();
+  }
+
+  function readReport(){
+    var penalties = [];
+    var blocks = container.children;
+    for(var b = 0; b < blocks.length; b++){
+      var n = blocks[b].querySelector('.penalty-name').value || '';
+      var r = blocks[b].querySelector('.penalty-rule').value || '';
+      if(n){ penalties.push({name:n, rule:r}); }
+    }
+    return {
+      period:           val('period'),
+      timeOnClock:      val('timeOnClock'),
+      offendingTeam:    teamValue('offendingTeam','offendingTeamOther'),
+      playerNumber:     val('playerNumber'),
+      playerName:       val('playerName'),
+      penalties:        penalties,
+      incidentDetails:  val('incidentDetails'),
+      opponentInjured:  val('opponentInjured'),
+      injuredReturned:  val('injuredReturned'),
+      returnTime:       val('returnTime')
+    };
+  }
+
+  function writeReport(r){
+    setValue('period', r.period);
+    setValue('timeOnClock', r.timeOnClock);
+    restoreTeam('offendingTeam','offendingTeamOther', r.offendingTeam);
+    setValue('playerNumber', r.playerNumber);
+    setValue('playerName', r.playerName);
+    setValue('incidentDetails', r.incidentDetails);
+    setValue('opponentInjured', r.opponentInjured);
+    setValue('injuredReturned', r.injuredReturned);
+    setValue('returnTime', r.returnTime);
+
+    container.innerHTML = '';
+    penaltyIndex = 0;
+    var list = r.penalties && r.penalties.length ? r.penalties : [null];
+    for(var i = 0; i < list.length; i++){
+      var block = addPenaltyBlock();
+      if(list[i] && block){
+        var nameSel = block.querySelector('.penalty-name');
+        nameSel.value = list[i].name;
+        nameSel.dispatchEvent(new Event('change'));
+        if(list[i].rule){ block.querySelector('.penalty-rule').value = list[i].rule; }
+      }
+    }
+
+    updateOffendingOther();
+    updateInjury();
+  }
+
+  function clearIncidentFields(){
+    var ids = ['timeOnClock','playerName','incidentDetails','returnTime',
+               'offendingTeamOther'];
+    for(var i = 0; i < ids.length; i++){ setValue(ids[i], ''); }
+    ['period','offendingTeam','playerNumber','opponentInjured','injuredReturned']
+      .forEach(function(id){ document.getElementById(id).selectedIndex = 0; });
+
+    container.innerHTML = '';
+    penaltyIndex = 0;
+    addPenaltyBlock();
+
+    updateOffendingOther();
+    updateInjury();
+  }
+
+  function setSectionsVisible(visible){
+    ['section-incident','section-penalties','section-details'].forEach(function(id){
+      document.getElementById(id).style.display = visible ? '' : 'none';
+    });
+  }
+
+  /* =====================================================================
+     8. VALIDATION
+     ===================================================================== */
+  function validate(){
+    clearError(errorEl);
+
+    var required = form.querySelectorAll('input[required], select[required], textarea[required]');
+    for(var i = 0; i < required.length; i++){
+      var el = required[i];
+      if(el.offsetParent === null && el.type !== 'hidden') continue; /* hidden field */
+      if(!el.checkValidity()){
+        var wrap = el.closest('.field');
+        var label = wrap ? wrap.querySelector('label') : null;
+        var name = label ? label.textContent.replace('*','').trim() : 'a required field';
+        showError(errorEl, el.value ? ('Please check the format of "' + name + '".')
+                                    : ('Please complete "' + name + '" before continuing.'), el);
+        return false;
+      }
+    }
+
+    if(mode !== 'shared'){
+      var blocks = container.children;
+      for(var b = 0; b < blocks.length; b++){
+        var nameSel = blocks[b].querySelector('.penalty-name');
+        var ruleSel = blocks[b].querySelector('.penalty-rule');
+        if(!nameSel.value){
+          showError(errorEl, 'Please select a penalty for Penalty ' + (b + 1) + ', or remove that block.', nameSel);
+          return false;
+        }
+        if(ruleSel.required && !ruleSel.value){
+          showError(errorEl, 'Please select a rule reference for Penalty ' + (b + 1) + '.', ruleSel);
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  /* =====================================================================
+     9. SAVE & REVIEW
+     ===================================================================== */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validate()) return;
+
+    shared = readShared();
+    persistShared();
+
+    if(mode === 'shared'){
+      /* only the game / official details were being edited */
+      setSectionsVisible(true);
+    } else {
+      var r = readReport();
+      if(mode === 'edit' && editingIndex > -1){
+        reports[editingIndex] = r;
+      } else {
+        reports.push(r);
+      }
+    }
+
+    mode = 'new';
+    editingIndex = -1;
+    editBanner.textContent = '';
+    editBanner.classList.remove('show');
+    submitBtn.textContent = 'Save & Review Report';
+
+    renderReview();
+    showView('review');
+  });
+
+  /* =====================================================================
+     10. REVIEW PAGE
+     ===================================================================== */
+  function kvRow(label, value){
+    if(!value) return '';
+    return '<dt>' + escapeHtml(label) + '</dt><dd>' + escapeHtml(value) + '</dd>';
+  }
+
+  function renderReview(){
+    clearError(reviewError);
+
+    var crew = [shared.referee1, shared.referee2, shared.linesperson1, shared.linesperson2]
+                 .filter(function(x){ return x; }).join(', ');
+
+    document.getElementById('sharedSummary').innerHTML =
+      kvRow('Filed by', (shared.firstName + ' ' + shared.lastName).trim()) +
+      kvRow('Email', shared.email) +
+      kvRow('Phone', shared.phone) +
+      kvRow('Game #', shared.gameNumber) +
+      kvRow('Date', shared.gameDate) +
+      kvRow('Matchup', shared.visitingTeam + ' at ' + shared.homeTeam) +
+      kvRow('Crew', crew);
+
+    var list = document.getElementById('reportList');
+    list.innerHTML = '';
+
+    for(var i = 0; i < reports.length; i++){
+      list.appendChild(buildReportCard(reports[i], i));
+    }
+
+    var n = reports.length;
+    document.getElementById('reportsHint').textContent =
+      n === 1 ? 'One player is included in this submission.'
+              : n + ' players are included in this submission. Each one is filed on its own row.';
+    document.getElementById('reviewCount').textContent =
+      'Sending ' + n + ' report' + (n === 1 ? '' : 's') + ' in this submission.';
+  }
+
+  function buildReportCard(r, i){
+    var card = document.createElement('div');
+    card.className = 'report-item';
+
+    var penaltyHtml = '';
+    for(var pIdx = 0; pIdx < r.penalties.length; pIdx++){
+      penaltyHtml += '<li><b>' + escapeHtml(r.penalties[pIdx].name) + '</b>' +
+        (r.penalties[pIdx].rule ? '<span>' + escapeHtml(r.penalties[pIdx].rule) + '</span>' : '') +
+        '</li>';
+    }
+
+    var injury = r.opponentInjured;
+    if(r.opponentInjured === 'Yes'){
+      injury += ' — returned to game: ' + (r.injuredReturned || 'not stated');
+      if(r.injuredReturned === 'Yes' && r.returnTime){
+        injury += ' (' + r.returnTime + ')';
+      }
+    }
+
+    card.innerHTML =
+      '<div class="report-item-head">' +
+        '<h4>Report ' + (i + 1) + '</h4>' +
+        '<div class="report-actions">' +
+          '<button type="button" class="btn-mini" data-edit="' + i + '">Edit</button>' +
+          (reports.length > 1 ? '<button type="button" class="btn-mini danger" data-remove="' + i + '">Remove</button>' : '') +
+        '</div>' +
+      '</div>' +
+      '<dl class="kv">' +
+        kvRow('Player', (r.playerNumber + ' ' + r.playerName).trim()) +
+        kvRow('Team', r.offendingTeam) +
+        kvRow('When', r.period + ' — ' + r.timeOnClock) +
+        kvRow('Injury', injury) +
+      '</dl>' +
+      '<ul class="report-penalties">' + penaltyHtml + '</ul>' +
+      '<p class="report-detail-text">' + escapeHtml(r.incidentDetails) + '</p>';
+
+    card.querySelector('[data-edit]').addEventListener('click', function(){
+      openForEdit(i);
+    });
+    var rm = card.querySelector('[data-remove]');
+    if(rm){
+      rm.addEventListener('click', function(){
+        reports.splice(i, 1);
+        renderReview();
+      });
+    }
+    return card;
+  }
+
+  function openForEdit(i){
+    mode = 'edit';
+    editingIndex = i;
+    setSectionsVisible(true);
+    writeShared(shared);
+    writeReport(reports[i]);
+    clearError(errorEl);
+    submitBtn.textContent = 'Save Changes';
+    editBanner.textContent = 'Editing report ' + (i + 1) + ' of ' + reports.length +
+      '. Save your changes to go back to the review page.';
+    showView('form');
+  }
+
+  document.getElementById('addReportBtn').addEventListener('click', function(){
+    mode = 'new';
+    editingIndex = -1;
+    setSectionsVisible(true);
+    writeShared(shared);
+    clearIncidentFields();
+    clearError(errorEl);
+    submitBtn.textContent = 'Save & Review Report';
+    editBanner.textContent = 'Adding report ' + (reports.length + 1) +
+      '. The game and crew details carry over — fill in the new player and their penalties.';
+    showView('form');
+    document.getElementById('section-incident').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('editSharedBtn').addEventListener('click', function(){
+    mode = 'shared';
+    editingIndex = -1;
+    setSectionsVisible(false);
+    writeShared(shared);
+    clearError(errorEl);
+    submitBtn.textContent = 'Save Changes';
+    editBanner.textContent = 'Editing the game and filing official details. These apply to every report in this submission.';
+    showView('form');
+  });
+
+  /* =====================================================================
+     11. FINAL SUBMIT
+     ===================================================================== */
+  finalSubmitBtn.addEventListener('click', function(){
+    if(!reports.length){
+      showError(reviewError, 'There are no reports to submit. Add at least one report first.');
+      return;
+    }
+    clearError(reviewError);
+
+    var payload = {
+      shared: shared,
+      reports: reports,
+      reportCount: reports.length,
+      submittedAt: new Date().toLocaleString('en-CA', {timeZone:'America/Vancouver'})
+    };
+
+    finalSubmitBtn.disabled = true;
+    finalSubmitBtn.textContent = 'Submitting…';
+
+    var body = new FormData();
+    body.append('payload', JSON.stringify(payload));
+
+    fetch(GOOGLE_SCRIPT_URL, {method:'POST', mode:'no-cors', body:body})
+      .then(function(){
+        showConfirmation(payload);
+      })
+      .catch(function(){
+        finalSubmitBtn.disabled = false;
+        finalSubmitBtn.textContent = 'Submit All Reports';
+        showError(reviewError, 'Something went wrong sending the submission. Please check your connection and try again. If it keeps failing, email your report to BCHC DOPS.');
+      });
+  });
+
+  /* =====================================================================
+     12. CONFIRMATION
+     ===================================================================== */
+  function showConfirmation(payload){
+    var n = payload.reports.length;
+
+    document.getElementById('confirmHeading').textContent =
+      (n === 1 ? 'Report Received' : n + ' Reports Received') + ' — Thank You';
+
+    document.getElementById('confirmMessage').textContent =
+      'Thank you for submitting ' + (n === 1 ? 'this Game Incident Report' : 'these Game Incident Reports') +
+      '. A copy has been emailed to you and to BCHC DOPS. If the Department of Player Safety needs anything further, they will contact you directly.';
+
+    var players = '';
+    for(var i = 0; i < payload.reports.length; i++){
+      var r = payload.reports[i];
+      players += '<div>' + (i + 1) + '. ' + escapeHtml((r.playerNumber + ' ' + r.playerName).trim()) +
+                 ' (' + escapeHtml(r.offendingTeam) + ')</div>';
+    }
+
+    document.getElementById('confirmSummary').innerHTML =
+      '<div><b>Game #:</b> ' + escapeHtml(payload.shared.gameNumber) + '</div>' +
+      '<div><b>Date:</b> ' + escapeHtml(payload.shared.gameDate) + '</div>' +
+      '<div><b>Matchup:</b> ' + escapeHtml(payload.shared.visitingTeam) + ' at ' + escapeHtml(payload.shared.homeTeam) + '</div>' +
+      '<div style="margin-top:8px;"><b>Reports filed:</b></div>' + players;
+
+    showView('confirm');
+  }
+
+  document.getElementById('againBtn').addEventListener('click', function(){
+    var carry = shared;
+
+    reports = [];
+    mode = 'new';
+    editingIndex = -1;
+
+    form.reset();
+    setSectionsVisible(true);
+    container.innerHTML = '';
+    penaltyIndex = 0;
+    addPenaltyBlock();
+
+    writeShared(carry);
+    updateOffendingOther();
+    updateInjury();
+
+    clearError(errorEl);
+    clearError(reviewError);
+    submitBtn.textContent = 'Save & Review Report';
+    finalSubmitBtn.disabled = false;
+    finalSubmitBtn.textContent = 'Submit All Reports';
+    editBanner.textContent = '';
+    editBanner.classList.remove('show');
+
+    showView('form');
+    var period = document.getElementById('period');
+    period.scrollIntoView({behavior:'smooth', block:'center'});
+    try { period.focus({preventScroll:true}); } catch(err){}
+  });
+
+  /* =====================================================================
+     13. SESSION RESILIENCE
+     ===================================================================== */
+  function persistShared(){
+    try { sessionStorage.setItem('bchcShared', JSON.stringify(shared)); } catch(err){}
+  }
+
   (function restoreSession(){
     var saved = null;
-    try { saved = JSON.parse(sessionStorage.getItem('bchcCarryOver') || 'null'); } catch(err){}
-    if(!saved) return;
-    var stillEmpty = !document.getElementById('firstName').value;
-    if(!stillEmpty) return;
-    lastSubmission = saved;
+    try { saved = JSON.parse(sessionStorage.getItem('bchcShared') || 'null'); } catch(err){}
+    if(saved && !val('firstName')){ writeShared(saved); }
   })();
 
 })();
